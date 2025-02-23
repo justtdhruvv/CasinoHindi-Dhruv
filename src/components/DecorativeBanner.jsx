@@ -19,7 +19,7 @@ const DecorativeBanner = () => {
       >
         <div className="aspect-[21/6] w-full overflow-hidden">
           <img 
-            src="/src/assets/gifs/betting1.gif"
+            src="/gifs/betting1.gif" // Updated path
             alt="Visit Stake"
             className="w-full h-full object-cover hover:opacity-90 transition-opacity duration-300"
             loading="lazy"

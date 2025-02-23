@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  publicDir: 'public', // Ensure this is set
   build: {
     outDir: 'dist',
     emptyOutDir: true,
@@ -20,6 +21,8 @@ export default defineConfig({
         }
       }
     },
+    // Add proper asset handling
+    assetsDir: 'assets',
   },
   server: {
     port: 5174,
