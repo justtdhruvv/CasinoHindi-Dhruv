@@ -9,7 +9,7 @@ export default defineConfig({
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  publicDir: 'public', // Ensure this is set
+  publicDir: 'public',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
@@ -18,10 +18,12 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor': ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
-        }
+        },
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: 'assets/[name].[ext]' // ✅ Remove hashing from asset names
       }
     },
-    // Add proper asset handling
     assetsDir: 'assets',
   },
   server: {
