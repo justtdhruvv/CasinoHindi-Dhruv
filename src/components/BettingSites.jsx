@@ -110,32 +110,24 @@ const BettingSites = () => {
     <section id="sites" className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto max-w-[1400px] relative">
         {/* Decorative Images with Links */}
-        <div 
-          className="hidden md:block absolute -left-28 top-[200px] cursor-pointer group" // Added group class
-          onClick={() => handleDecoImageClick('https://1wuyue.top/?open=register&p=375q')}
-        >
+        <div className="hidden md:block absolute -left-28 top-[200px] cursor-pointer group">
           <motion.img 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            src="/images/site2.jpg" // Updated path
+            src="/images/site2.jpg" // Updated path to use public folder
             alt="" 
-            className="w-72 h-auto rounded-lg shadow-lg opacity-95 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105" // Updated hover effect
-            aria-hidden="true"
+            className="w-72 h-auto rounded-lg shadow-lg opacity-95 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
           />
         </div>
-        <div 
-          className="hidden md:block absolute -right-28 top-[200px] cursor-pointer group" // Added group class
-          onClick={() => handleDecoImageClick('https://1wuyue.top/?open=register&p=375q')}
-        >
+        <div className="hidden md:block absolute -right-28 top-[200px] cursor-pointer group">
           <motion.img 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            src="/images/site3.jpg" // Updated path
+            src="/images/site3.jpg" // Updated path to use public folder
             alt="" 
-            className="w-72 h-auto rounded-lg shadow-lg opacity-95 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105" // Updated hover effect
-            aria-hidden="true"
+            className="w-72 h-auto rounded-lg shadow-lg opacity-95 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
           />
         </div>
 
