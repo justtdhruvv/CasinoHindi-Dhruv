@@ -15,7 +15,7 @@ export const bettingSites = [
     name: 'Stake',
     rating: 4.5,
     image: stakeLogo,
-    affiliateLink: 'https://stake.com/?c=CASINOHINDI2025',
+    affiliateLink: 'http://stake.ceo/?c=CASINOHINDI2025',
     additionalLinks: [
      
     ],
