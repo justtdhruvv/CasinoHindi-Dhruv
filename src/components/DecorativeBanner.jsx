@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { betting1Gif } from '../assets';
 
 const DecorativeBanner = () => {
   const handleClick = () => {
@@ -11,7 +12,7 @@ const DecorativeBanner = () => {
       <motion.div>
         <div className="aspect-[21/6] w-full overflow-hidden">
           <img 
-            src="/gifs/betting1.gif" // Updated path to use public folder
+            src={betting1Gif}
             alt="Visit Stake"
             className="w-full h-full object-cover hover:opacity-90 transition-opacity duration-300"
             loading="lazy"

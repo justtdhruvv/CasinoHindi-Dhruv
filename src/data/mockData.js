@@ -1,7 +1,5 @@
 // Import your local images
-import bettingSite1 from '../assets/images/stake logo 1.jpg';
-import bettingSite2 from '../assets/images/1win.png';
-import bettingSite3 from '../assets/images/site3.jpg';
+import { stakeLogo, winLogo } from '../assets';
 // Add more imports as needed
 
 
@@ -16,25 +14,24 @@ export const bettingSites = [
     id: '1',
     name: 'Stake',
     rating: 4.5,
-    image: bettingSite1, // Use the imported image
-    affiliateLink: 'https://stake.com/?c=CASINOHINDI2025', // Updated to actual Stake URL
+    image: stakeLogo,
+    affiliateLink: 'https://stake.com/?c=CASINOHINDI2025',
     additionalLinks: [
-     
-     
+      { url: 'https://stake.com/?c=CASINOHINDI2025', label: 'Mirror Link 1' }
     ],
-    description: 'Stake.com is a popular crypto betting platform offering fast transactions, sports betting, and casino games with a sleek and fair gaming experience.🚀 ',
-    bonus: '200% deposit match up to ₹1,00,000.',
-    promoCode: 'CasinoHindi' // Add this
+    description: 'Stake.com is a popular crypto betting platform offering fast transactions, sports betting, and casino games with a sleek and fair gaming experience.🚀',
+    bonus: '100% up to $500',
+    promoCode: 'CasinoHindi'
   },
   {
     id: '2',
     name: '1 Win Bet',
     rating: 4.3,
-    image: bettingSite2, // Use the imported image
-    affiliateLink: 'https://1wuyue.top/?open=register&p=375q', // Updated to actual 1Win URL
+    image: winLogo,
+    affiliateLink: 'https://1wuyue.top/?open=register&p=375q',
     description: '1Win is a trusted betting platform offering sports betting, casino games, and generous bonuses, all with a smooth and user-friendly experience. 🚀',
-    bonus: '+500%  ON YOUR FIRST DEPOSIT ',
-    promoCode: 'CasinoHindi' // Add this
+    bonus: '+500% ON YOUR FIRST DEPOSIT',
+    promoCode: 'CasinoHindi'
   }
 ];
 
@@ -43,8 +40,8 @@ export const carouselSlides = [
     id: '1',
     title: 'Find Your Perfect Betting Site',
     description: 'Compare the best betting platforms in one place',
-    mediaType: 'gif',
-    mediaUrl: carouselVideo2,
+    mediaType: 'image',
+    mediaUrl: '/images/img1.jpg', // Updated path
     cta: {
       text: 'Explore Now',
       link: '#sites'  // This already points to betting sites

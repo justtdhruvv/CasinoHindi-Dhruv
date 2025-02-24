@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { Star, ShieldCheck } from 'lucide-react'; // Add Shield import
 import { bettingSites } from '../data/mockData';
 import DecorativeBanner from './DecorativeBanner';
+import { site2Image, site3Image } from '../assets';
 
 const BettingSiteCard = ({ site }) => {
   const [ref, inView] = useInView({
@@ -115,7 +116,7 @@ const BettingSites = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            src="/images/site2.jpg" // Updated path to use public folder
+            src={site2Image}
             alt="" 
             className="w-72 h-auto rounded-lg shadow-lg opacity-95 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
           />
@@ -125,7 +126,7 @@ const BettingSites = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            src="/images/site3.jpg" // Updated path to use public folder
+            src={site3Image}
             alt="" 
             className="w-72 h-auto rounded-lg shadow-lg opacity-95 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
           />

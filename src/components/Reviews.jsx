@@ -1,12 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, ChevronRight } from 'lucide-react';
+import {
+  stakeLogo,
+  winLogo,
+  bcgameLogo,
+  lotus365Logo,
+  parimatchLogo,
+  twinLogo,
+  megapariLogo,
+  pinupLogo,
+  rokuLogo,
+  bettiltLogo
+} from '../assets';
 
 const reviews = [
   {
     id: 1,
     siteName: 'Stake',
-    logo: '/src/assets/images/stake logo 1.jpg',
+    logo: stakeLogo,
     rating: 4.9,
     shortReview: '✅ Most Trusted Crypto Betting Platform - Highly Recommended',
     longReview: `Stake.com stands out as the most reliable betting platform with exceptional features:
@@ -25,7 +37,7 @@ const reviews = [
   {
     id: 2,
     siteName: '1Win',
-    logo: '/src/assets/images/1win.webp',
+    logo: winLogo,
     rating: 4.8,
     shortReview: '✅ Superior Betting Experience with Guaranteed Payouts',
     longReview: `1Win delivers excellence in every aspect:
@@ -44,7 +56,7 @@ const reviews = [
   {
     id: 3,
     siteName: 'BC.Game',
-    logo: '/src/assets/images/bcgame.jpg',
+    logo: bcgameLogo,
     rating: 2.1,
     shortReview: '⚠️ Multiple User Complaints and Issues Reported',
     longReview: `Warning: Users have reported significant issues with BC.Game:
@@ -60,7 +72,7 @@ const reviews = [
   {
     id: 4,
     siteName: 'Lotus365',
-    logo: '/src/assets/images/lotus365.jpg',
+    logo: lotus365Logo,
     rating: 1.9,
     shortReview: '⚠️ High Risk Platform with Multiple Red Flags',
     longReview: `Critical Warning about Lotus365:
@@ -76,7 +88,7 @@ const reviews = [
   {
     id: 5,
     siteName: 'Parimatch',
-    logo: '/src/assets/images/parimatch.jpg',
+    logo: parimatchLogo,
     rating: 2.3,
     shortReview: '⚠️ Numerous User Complaints and Technical Issues',
     longReview: `User Warning for Parimatch:
@@ -92,7 +104,7 @@ const reviews = [
   {
     id: 6,
     siteName: 'Twin Casino',
-    logo: '/src/assets/images/twin.jpg',
+    logo: twinLogo,
     rating: 2.0,
     shortReview: '⚠️ Serious Platform Issues and User Warnings',
     longReview: `Important Warning about Twin Casino:
@@ -108,7 +120,7 @@ const reviews = [
   {
     id: 7,
     siteName: 'MegaPari',
-    logo: '/src/assets/images/megapari.jpg',
+    logo: megapariLogo,
     rating: 1.8,
     shortReview: '⚠️ Major Concerns with Platform Reliability',
     longReview: `Warning: MegaPari shows significant issues:
@@ -124,7 +136,7 @@ const reviews = [
   {
     id: 8,
     siteName: 'Pin-Up Casino',
-    logo: '/src/assets/images/pinup.jpg',
+    logo: pinupLogo,
     rating: 2.2,
     shortReview: '⚠️ Multiple User Warnings and Platform Issues',
     longReview: `Critical Alert for Pin-Up Casino:
@@ -140,7 +152,7 @@ const reviews = [
   {
     id: 9,
     siteName: 'Roku',
-    logo: '/src/assets/images/roku.jpg',
+    logo: rokuLogo,
     rating: 1.7,
     shortReview: '⚠️ Serious Platform Issues and User Complaints',
     longReview: `Warning: Major issues reported with Roku:
@@ -156,7 +168,7 @@ const reviews = [
   {
     id: 10,
     siteName: 'Bettilt',
-    logo: '/src/assets/images/bettilt.jpg',
+    logo: bettiltLogo,
     rating: 2.0,
     shortReview: '⚠️ Multiple Red Flags and User Warnings',
     longReview: `Important Warning about Bettilt:
@@ -225,9 +237,9 @@ const Reviews = () => {
   const trustedSites = reviews.filter(review => 
     review.siteName === 'Stake' || review.siteName === '1Win'
   );
-  
+
   const untrustedSites = reviews.filter(review => 
-    review.siteName !== 'Stake' && review.siteName !== '1Win'
+    !trustedSites.some(trusted => trusted.id === review.id)
   );
 
   return (

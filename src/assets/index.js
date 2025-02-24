@@ -1,0 +1,14 @@
+export { default as stakeLogo } from './images/stake logo 1.jpg';
+export { default as winLogo } from './images/1win.webp';
+export { default as bcgameLogo } from './images/bcgame.jpg';
+export { default as lotus365Logo } from './images/lotus365.jpg';
+export { default as parimatchLogo } from './images/parimatch.jpg';
+export { default as twinLogo } from './images/twin.jpg';
+export { default as megapariLogo } from './images/megapari.jpg';
+export { default as pinupLogo } from './images/pinup.jpg';
+export { default as rokuLogo } from './images/roku.jpg';
+export { default as bettiltLogo } from './images/bettilt.jpg';
+export { default as site2Image } from './images/site2.jpg';
+export { default as site3Image } from './images/site3.jpg';
+export { default as betting1Gif } from './images/betting1.gif';
+export { default as logo } from './images/logo.jpg';

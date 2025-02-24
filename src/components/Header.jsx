@@ -9,6 +9,29 @@ const Header = () => {
   const location = useLocation(); // Get current location
   const isAboutPage = location.pathname === '/about';
 
+  const handleNavClick = (e, href) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const element = document.querySelector(href.substring(1));
+      if (element) {
+        const headerOffset = 80; // Height of fixed header
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+        setIsOpen(false); // Close mobile menu if open
+      }
+    } else if (href === '/') {
+      if (window.location.pathname === '/') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
+
   const socialLinks = [
     {
       name: 'Telegram',
@@ -80,23 +103,14 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              item.href.startsWith('/#') ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-                >
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                to={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+              >
+                {item.name}
+              </Link>
             ))}
           </div>
 
@@ -126,7 +140,7 @@ const Header = () => {
                       key={item.name}
                       href={item.href}
                       className="block text-gray-600 hover:text-gray-900 transition-colors duration-200"
-                      onClick={() => setIsOpen(false)}
+                      onClick={(e) => handleNavClick(e, item.href)}
                     >
                       {item.name}
                     </a>

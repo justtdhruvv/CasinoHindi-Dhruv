@@ -1,23 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import BettingSites from './components/BettingSites';
+import TrustElements from './components/TrustElements';
+import ResponsibleGaming from './components/ResponsibleGaming';
+import About from './components/About';
+import Reviews from './components/Reviews';
+import Terms from './components/Terms';
+import Footer from './components/Footer';
+import AffiliateDisclosure from './components/AffiliateDisclosure';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <main>
-        <Hero />
-        <BettingSites />
-      </main>
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © {new Date().getFullYear()} BetCompare. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Routes>
+        <Route path="/" element={
+          <main>
+            <Hero />
+            <BettingSites />
+            <TrustElements />
+            <Reviews />
+            <ResponsibleGaming />
+            <AffiliateDisclosure />
+          </main>
+        } />
+        <Route path="/about" element={<About />} />
+        <Route path="/terms" element={<Terms />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
