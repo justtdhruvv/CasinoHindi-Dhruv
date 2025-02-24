@@ -17,7 +17,7 @@ export const bettingSites = [
     image: stakeLogo,
     affiliateLink: 'https://stake.com/?c=CASINOHINDI2025',
     additionalLinks: [
-      { url: 'https://stake.com/?c=CASINOHINDI2025', label: 'Visit Site' }
+     
     ],
     description: 'Stake.com is a popular crypto betting platform offering fast transactions, sports betting, and casino games with a sleek and fair gaming experience.🚀',
     bonus: '200% deposit match up to ₹1,00,000.',
