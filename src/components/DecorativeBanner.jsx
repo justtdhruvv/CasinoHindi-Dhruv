@@ -4,7 +4,7 @@ import { betting1Gif } from '../assets';
 
 const DecorativeBanner = () => {
   const handleClick = () => {
-    window.open('http://stake.com/?c=CASINOHINDI2025', '_blank', 'noopener,noreferrer');
+    window.open('https://stake.games/?c=CASINOHINDI2025', '_blank', 'noopener,noreferrer');
   };
 
   return (
