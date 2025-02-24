@@ -60,21 +60,21 @@ const Header = () => {
     {
       name: 'Telegram',
       icon: <Send className="w-4 h-4" />,
-      href: 'https://t.me/yourtelegramlink',
+      href: 'https://t.me/casinohindi',
       bgColor: 'bg-[#0088cc]',
       hoverBg: 'hover:bg-[#0077b3]'
     },
     {
       name: 'YouTube',
       icon: <Youtube className="w-4 h-4" />,
-      href: 'https://youtube.com/@yourchannel',
+      href: 'https://youtube.com/@casinohindi?si=e4D6NXGaV7C2yEiZ',
       bgColor: 'bg-[#ff0000]',
       hoverBg: 'hover:bg-[#cc0000]'
     },
     {
       name: 'Email',
       icon: <Mail className="w-4 h-4" />,
-      href: 'mailto:your@email.com',
+      href: 'mailto:Casinohindi@gmail.com',
       bgColor: 'bg-[#ea4335]',
       hoverBg: 'hover:bg-[#d33426]'
     }

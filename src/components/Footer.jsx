@@ -1,35 +1,43 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Send, Youtube, Mail } from 'lucide-react';
 import logo from '../assets/images/logo.jpg';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
 
   const handleTermsClick = () => {
     window.scrollTo(0, 0);
   };
 
-  const handleNavigation = (e, href) => {
-    if (href === '/') {
-      // Always scroll to top for home link
-      if (window.location.pathname === '/') {
-        // If already on home page, prevent default and scroll
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        // If on another page, let navigation happen but ensure scroll to top
+  const handleNavigation = async (e, href) => {
+    e.preventDefault();
+    
+    if (href.startsWith('/#')) {
+      if (location.pathname !== '/') {
+        // If not on home page, navigate to home first
+        await navigate('/');
+        // Wait for navigation to complete
         setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 0);
+          const element = document.querySelector(href.substring(1));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // If already on home page, just scroll
+        const element = document.querySelector(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
-    } else if (href.startsWith('/#')) {
-      e.preventDefault();
-      const element = document.querySelector(href.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (href === '/about') {
+    } else if (href === '/') {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate(href);
       window.scrollTo(0, 0);
     }
   };
@@ -88,13 +96,13 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    to={link.href}
+                  <a 
+                    href={link.href}
                     onClick={(e) => handleNavigation(e, link.href)}
                     className="text-gray-400 hover:text-white transition-colors duration-200"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
