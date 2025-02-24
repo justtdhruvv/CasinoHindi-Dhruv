@@ -1,34 +1,58 @@
 import React, { useState } from 'react';
 import { Menu, X, Send, Youtube, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom'; // Add useLocation
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Add useNavigate
 import logo from '../assets/images/logo.jpg';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // Get current location
+  const location = useLocation();
+  const navigate = useNavigate(); // Add this
   const isAboutPage = location.pathname === '/about';
 
   const handleNavClick = (e, href) => {
+    e.preventDefault();
+    
     if (href.startsWith('/#')) {
-      e.preventDefault();
-      const element = document.querySelector(href.substring(1));
-      if (element) {
-        const headerOffset = 80; // Height of fixed header
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-        setIsOpen(false); // Close mobile menu if open
+      // If on about page, first navigate to home then scroll
+      if (isAboutPage) {
+        navigate('/');
+        // Wait for navigation to complete then scroll
+        setTimeout(() => {
+          const element = document.querySelector(href.substring(1));
+          if (element) {
+            const headerOffset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      } else {
+        // Normal scroll behavior if already on home page
+        const element = document.querySelector(href.substring(1));
+        if (element) {
+          const headerOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       }
+      setIsOpen(false);
     } else if (href === '/') {
-      if (window.location.pathname === '/') {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsOpen(false);
+    } else {
+      // For other routes like /about
+      navigate(href);
+      window.scrollTo(0, 0);
+      setIsOpen(false);
     }
   };
 
@@ -103,14 +127,14 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </div>
 
