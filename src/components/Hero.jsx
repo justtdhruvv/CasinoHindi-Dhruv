@@ -64,7 +64,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
+    <div className="relative h-[40vh] md:h-[60vh] overflow-hidden pt-16 md:pt-20"> {/* Added pt-16 for mobile and pt-20 for desktop */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -76,13 +76,13 @@ const Hero = () => {
         >
           <MediaBackground slide={carouselSlides[currentSlide]} />
           <div className="absolute inset-0 bg-black bg-opacity-50" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white px-4">
+          <div className="absolute inset-0 flex items-center justify-center px-4"> {/* Added px-4 for mobile */}
+            <div className="text-center text-white">
               <motion.h1
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-4xl md:text-5xl font-bold mb-4"
+                className="text-2xl md:text-5xl font-bold mb-2 md:mb-4" // Adjusted text size and margins for mobile
               >
                 {carouselSlides[currentSlide].title}
               </motion.h1>
@@ -90,7 +90,7 @@ const Hero = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-lg md:text-xl mb-8"
+                className="text-base md:text-xl mb-4 md:mb-8" // Adjusted text size and margins for mobile
               >
                 {carouselSlides[currentSlide].description}
               </motion.p>
