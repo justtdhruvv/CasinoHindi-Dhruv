@@ -1,5 +1,5 @@
 // Import your local images
-import { stakeLogo, winLogo } from '../assets';
+import { stakeLogo, winLogo,  } from '../assets';
 // Add more imports as needed
 
 
@@ -39,12 +39,12 @@ export const carouselSlides = [
   {
     id: '1',
     title: 'Find Your Perfect Betting Site',
-    description: 'Compare the best betting platforms in one place',
+    description: 'Trusted Reviews & Recommendations',
     mediaType: 'image',
-    mediaUrl: '/images/img1.jpg', // Updated path
+    mediaUrl: carouselVideo2,
     cta: {
-      text: 'Explore Now',
-      link: '#sites'  // This already points to betting sites
+      text: 'Explore Sites',
+      link: '#sites'
     }
   },
   {

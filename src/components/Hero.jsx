@@ -29,14 +29,14 @@ const MediaBackground = ({ slide }) => {
     case 'gif':
     case 'image':
       return (
-        <div
-          className="w-full h-full"
-          style={{ 
-            backgroundImage: `url(${slide.mediaUrl})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            imageRendering: 'high-quality'
-          }}
+        <motion.img
+          src={slide.mediaUrl}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
         />
       );
     default:
@@ -75,7 +75,7 @@ const Hero = () => {
           className="absolute inset-0"
         >
           <MediaBackground slide={carouselSlides[currentSlide]} />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
+          <div className="absolute inset-0 bg-black bg-opacity-40" /> {/* Reduced opacity */}
           <div className="absolute inset-0 flex items-center justify-center px-4"> {/* Added px-4 for mobile */}
             <div className="text-center text-white">
               <motion.h1
